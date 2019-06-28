@@ -1,0 +1,29 @@
+{
+    "name": "aeviiq/value-object",
+    "type": "library",
+    "description": "Value Object Component",
+    "keywords": [
+        "value-object"
+    ],
+    "homepage": "https://github.com/aeviiq/value-object",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aeviiq Value Object contributors",
+            "homepage": "https://github.com/aeviiq/value-object/graphs/contributors"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aeviiq\\ValueObject\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Aeviiq\\Tests\\ValueObject\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.2"
+    }
+}
