@@ -13,8 +13,9 @@ abstract class Value
 
     public function __construct($value)
     {
+        $value = $this->normalize($value);
         Validator::validate($value, $this->getConstraints());
-        $this->value = $this->normalize($value);
+        $this->value = $value;
     }
 
     /**
