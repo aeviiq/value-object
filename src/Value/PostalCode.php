@@ -8,6 +8,9 @@ use Aeviiq\ValueObject\Exception\LogicException;
 use Aeviiq\ValueObject\Normalizer;
 use Symfony\Component\Validator\Constraints;
 
+/*
+ * This class only supports the countries defined as public const.
+ */
 final class PostalCode extends _String
 {
     // The supported country codes in ISO_3166-1_alpha-2 format

@@ -4,7 +4,7 @@ namespace Aeviiq\ValueObject;
 
 use Symfony\Component\Validator\Constraint;
 
-abstract class Value
+abstract class Value implements Equatable
 {
     /**
      * @var mixed
@@ -24,6 +24,14 @@ abstract class Value
     final public function get()
     {
         return $this->value;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    final public function isEqualTo($value): bool
+    {
+        return $value === $this->value;
     }
 
     /**

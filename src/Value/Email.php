@@ -24,6 +24,8 @@ final class Email extends _String
      */
     protected function normalize($value): string
     {
-        return Normalizer::removeWhitespace($value);
+        $value = Normalizer::removeWhitespace($value);
+
+        return \strtolower($value);
     }
 }
