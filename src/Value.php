@@ -3,7 +3,6 @@
 namespace Aeviiq\ValueObject;
 
 use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints;
 
 abstract class Value
 {
@@ -12,19 +11,9 @@ abstract class Value
      */
     protected $value;
 
-    /**
-     * @var bool
-     */
-    protected $allowEmpty = false;
-
     public function __construct($value)
     {
-        $constraints = $this->getConstraints();
-        if (!$this->allowEmpty) {
-            $constraints[] = new Constraints\NotBlank();
-        }
-
-        Validator::validate($value, $constraints);
+        Validator::validate($value, $this->getConstraints());
         $this->value = $this->normalize($value);
     }
 

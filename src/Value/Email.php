@@ -14,6 +14,7 @@ final class Email extends _String
     protected function getConstraints(): array
     {
         return [
+            new Constraints\NotBlank(),
             new Constraints\Email(),
         ];
     }
