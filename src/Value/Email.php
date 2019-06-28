@@ -11,7 +11,7 @@ final class Email extends _String
     /**
      * @inheritdoc
      */
-    protected static function getConstraints(): array
+    protected function getConstraints(): array
     {
         return [
             new Constraints\Email(),

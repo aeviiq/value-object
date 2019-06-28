@@ -19,7 +19,7 @@ abstract class Value
 
     public function __construct($value)
     {
-        $constraints = static::getConstraints();
+        $constraints = $this->getConstraints();
         if (!$this->allowEmpty) {
             $constraints[] = new Constraints\NotBlank();
         }
@@ -29,17 +29,17 @@ abstract class Value
     }
 
     /**
-     * @return Constraint[]
-     */
-    abstract protected static function getConstraints(): array;
-
-    /**
      * @return mixed
      */
     final public function get()
     {
         return $this->value;
     }
+
+    /**
+     * @return Constraint[]
+     */
+    abstract protected function getConstraints(): array;
 
     /**
      * @return mixed
