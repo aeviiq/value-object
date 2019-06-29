@@ -31,6 +31,10 @@ abstract class Value implements Equatable
      */
     final public function isEqualTo($value): bool
     {
+        if ($value instanceof self) {
+            return $value === $value->get();
+        }
+
         return $value === $this->value;
     }
 
