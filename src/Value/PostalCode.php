@@ -51,10 +51,11 @@ final class PostalCode extends _String
 
     private function getRegexPattern(): string
     {
-        if (!isset(static::$patterns[$this->countryCode])) {
-            throw new LogicException(\sprintf('The regex pattern is not implemented for country code "%s".', $this->countryCode));
+        $code = $this->countryCode->getValue();
+        if (!isset(static::$patterns[$code])) {
+            throw new LogicException(\sprintf('The regex pattern is not implemented for country code "%s".', $code));
         }
 
-        return static::$patterns[$this->countryCode];
+        return static::$patterns[$code];
     }
 }
