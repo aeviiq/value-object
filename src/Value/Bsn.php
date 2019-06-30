@@ -4,6 +4,7 @@ namespace Aeviiq\ValueObject\Value;
 
 use Aeviiq\ValueObject\_String;
 use Aeviiq\ValueObject\Constraint;
+use Aeviiq\ValueObject\Normalizer;
 use Symfony\Component\Validator\Constraints;
 
 final class Bsn extends _String
@@ -17,5 +18,13 @@ final class Bsn extends _String
             new Constraints\NotBlank(),
             new Constraint\Bsn(),
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function normalize($value): string
+    {
+        return Normalizer::removeWhitespace($value);
     }
 }

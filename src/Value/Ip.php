@@ -6,7 +6,7 @@ use Aeviiq\ValueObject\_String;
 use Aeviiq\ValueObject\Constraint;
 use Symfony\Component\Validator\Constraints;
 
-final class IpAddress extends _String
+final class Ip extends _String
 {
     /**
      * @inheritdoc
@@ -15,7 +15,7 @@ final class IpAddress extends _String
     {
         return [
             new Constraints\NotBlank(),
-            new Constraint\IpAddress(),
+            new Constraint\Ip(),
         ];
     }
 }

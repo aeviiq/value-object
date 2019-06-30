@@ -7,15 +7,15 @@ use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 
-final class IpAddressValidator extends ConstraintValidator
+final class IpValidator extends ConstraintValidator
 {
     /**
      * @inheritdoc
      */
     public function validate($value, Constraint $constraint): void
     {
-        if (!$constraint instanceof IpAddress) {
-            throw new UnexpectedTypeException($constraint, IpAddress::class);
+        if (!$constraint instanceof Ip) {
+            throw new UnexpectedTypeException($constraint, Ip::class);
         }
 
         if (null === $value || '' === $value) {
