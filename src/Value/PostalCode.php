@@ -18,7 +18,7 @@ final class PostalCode extends _String
     ];
 
     /**
-     * @var string
+     * @var CountryCode
      */
     private $countryCode;
 
@@ -26,6 +26,11 @@ final class PostalCode extends _String
     {
         $this->countryCode = $countryCode;
         parent::__construct($value);
+    }
+
+    public function getCountryCode(): CountryCode
+    {
+        return $this->countryCode;
     }
 
     /**
