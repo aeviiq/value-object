@@ -4,6 +4,7 @@ namespace Aeviiq\ValueObject\Value;
 
 use Aeviiq\ValueObject\_String;
 use Aeviiq\ValueObject\Constraint;
+use Symfony\Component\Validator\Constraints;
 
 final class Bsn extends _String
 {
@@ -13,6 +14,7 @@ final class Bsn extends _String
     protected function getConstraints(): array
     {
         return [
+            new Constraints\NotBlank(),
             new Constraint\Bsn(),
         ];
     }

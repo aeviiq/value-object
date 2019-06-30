@@ -34,9 +34,9 @@ final class PostalCode extends _String
     protected function getConstraints(): array
     {
         return [
+            new Constraints\NotBlank(),
             new Constraints\Regex([
                 'pattern' => $this->getRegexPattern(),
-                'match' => true,
                 'message' => 'This is not a valid Postal Code.',
             ]),
         ];
