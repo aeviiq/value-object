@@ -2,7 +2,7 @@
 
 namespace Aeviiq\ValueObject;
 
-abstract class _String extends Value
+abstract class AbstractString extends AbstractValue
 {
     public function __construct(string $value)
     {

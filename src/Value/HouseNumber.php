@@ -2,10 +2,10 @@
 
 namespace Aeviiq\ValueObject\Value;
 
-use Aeviiq\ValueObject\_String;
+use Aeviiq\ValueObject\AbstractString;
 use Symfony\Component\Validator\Constraints;
 
-final class HouseNumber extends _String
+final class HouseNumber extends AbstractString
 {
     /**
      * @inheritdoc

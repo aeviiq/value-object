@@ -2,11 +2,11 @@
 
 namespace Aeviiq\ValueObject\Value;
 
-use Aeviiq\ValueObject\_String;
+use Aeviiq\ValueObject\AbstractString;
 use Aeviiq\ValueObject\Normalizer;
 use Symfony\Component\Validator\Constraints;
 
-final class Iban extends _String
+final class Iban extends AbstractString
 {
     /**
      * @inheritdoc

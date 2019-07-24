@@ -4,7 +4,7 @@ namespace Aeviiq\ValueObject;
 
 use Symfony\Component\Validator\Constraint;
 
-abstract class Value implements Equatable
+abstract class AbstractValue implements EquatableInterface
 {
     /**
      * @var mixed

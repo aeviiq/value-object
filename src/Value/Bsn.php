@@ -2,12 +2,12 @@
 
 namespace Aeviiq\ValueObject\Value;
 
-use Aeviiq\ValueObject\_String;
+use Aeviiq\ValueObject\AbstractString;
 use Aeviiq\ValueObject\Constraint;
 use Aeviiq\ValueObject\Normalizer;
 use Symfony\Component\Validator\Constraints;
 
-final class Bsn extends _String
+final class Bsn extends AbstractString
 {
     /**
      * @inheritdoc

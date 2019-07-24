@@ -2,11 +2,11 @@
 
 namespace Aeviiq\ValueObject\Value;
 
-use Aeviiq\ValueObject\_String;
+use Aeviiq\ValueObject\AbstractString;
 use Aeviiq\ValueObject\Normalizer;
 use Symfony\Component\Validator\Constraints;
 
-final class Email extends _String
+final class Email extends AbstractString
 {
     /**
      * @inheritdoc

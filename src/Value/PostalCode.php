@@ -2,13 +2,13 @@
 
 namespace Aeviiq\ValueObject\Value;
 
-use Aeviiq\ValueObject\_String;
+use Aeviiq\ValueObject\AbstractString;
 use Aeviiq\ValueObject\Enum\Iso\Iso3166_1Alpha2\CountryCode;
 use Aeviiq\ValueObject\Exception\LogicException;
 use Aeviiq\ValueObject\Normalizer;
 use Symfony\Component\Validator\Constraints;
 
-final class PostalCode extends _String
+final class PostalCode extends AbstractString
 {
     /**
      * @var string[]

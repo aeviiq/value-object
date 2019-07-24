@@ -2,11 +2,11 @@
 
 namespace Aeviiq\ValueObject\Value;
 
-use Aeviiq\ValueObject\_String;
+use Aeviiq\ValueObject\AbstractString;
 use Aeviiq\ValueObject\Constraint;
 use Symfony\Component\Validator\Constraints;
 
-final class Ip extends _String
+final class Ip extends AbstractString
 {
     /**
      * @inheritdoc

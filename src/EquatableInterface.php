@@ -2,7 +2,7 @@
 
 namespace Aeviiq\ValueObject;
 
-interface Equatable
+interface EquatableInterface
 {
     /**
      * @param mixed $value
