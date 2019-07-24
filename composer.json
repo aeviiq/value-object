@@ -20,7 +20,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Aeviiq\\Tests\\ValueObject\\": "tests/"
+            "Aeviiq\\ValueObject\\Tests\\": "tests/"
         }
     },
     "require": {
