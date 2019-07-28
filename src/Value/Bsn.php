@@ -10,9 +10,9 @@ use Symfony\Component\Validator\Constraints;
 final class Bsn extends AbstractString
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
-    protected function getConstraints(): array
+    public static function getConstraints(): array
     {
         return [
             new Constraints\NotBlank(),
@@ -21,7 +21,7 @@ final class Bsn extends AbstractString
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     protected function normalize($value): string
     {

@@ -9,9 +9,9 @@ use Symfony\Component\Validator\Constraints;
 final class PhoneNumber extends AbstractString
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
-    protected function getConstraints(): array
+    public static function getConstraints(): array
     {
         return [
             new Constraints\NotBlank(),
@@ -23,10 +23,13 @@ final class PhoneNumber extends AbstractString
                 'pattern' => '/^[\d ()+-]+$/',
                 'message' => 'This is not a valid phone number.',
             ]),
-            // TODO find a better way to validate this or maybe implement country specific validation, as is done with postal code?
+            // TODO find a better way to validate this or maybe implement country specific value objects, as is done with postal code?
         ];
     }
 
+    /**
+     * {@inheritDoc}
+     */
     protected function normalize($value): string
     {
         return Normalizer::removeWhitespace($value);

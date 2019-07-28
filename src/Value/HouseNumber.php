@@ -8,9 +8,9 @@ use Symfony\Component\Validator\Constraints;
 final class HouseNumber extends AbstractString
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
-    protected function getConstraints(): array
+    public static function getConstraints(): array
     {
         return [
             new Constraints\NotBlank(),
