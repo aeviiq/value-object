@@ -12,7 +12,7 @@ abstract class AbstractValue implements EquatableInterface, ValidatableInterface
     public function __construct($value)
     {
         $value = $this->normalize($value);
-        Validator::validateByValue($this);
+        Validator::validateBy($this);
         $this->value = $value;
     }
 
