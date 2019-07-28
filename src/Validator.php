@@ -16,6 +16,14 @@ final class Validator
     private static $validator;
 
     /**
+     * @throws InvalidArgumentException When the value violates any of the present constraints.
+     */
+    public static function validateBy(ValidatableInterface $validatable): void
+    {
+        static::validate($validatable->get(), $validatable::getConstraints());
+    }
+
+    /**
      * @param mixed                   $value
      * @param Constraint|Constraint[] $rules
      *
