@@ -2,9 +2,7 @@
 
 namespace Aeviiq\ValueObject;
 
-use Symfony\Component\Validator\Constraint;
-
-abstract class AbstractValue implements EquatableInterface
+abstract class AbstractValue implements EquatableInterface, ValidatableInterface
 {
     /**
      * @var mixed
@@ -14,12 +12,12 @@ abstract class AbstractValue implements EquatableInterface
     public function __construct($value)
     {
         $value = $this->normalize($value);
-        Validator::validate($value, $this->getConstraints());
+        Validator::validateByValue($this);
         $this->value = $value;
     }
 
     /**
-     * @return mixed
+     * {@inheritDoc}
      */
     final public function get()
     {
@@ -27,7 +25,7 @@ abstract class AbstractValue implements EquatableInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     final public function isEqualTo($value): bool
     {
@@ -37,11 +35,6 @@ abstract class AbstractValue implements EquatableInterface
 
         return $value === $this->value;
     }
-
-    /**
-     * @return Constraint[]
-     */
-    abstract protected function getConstraints(): array;
 
     /**
      * @return mixed
