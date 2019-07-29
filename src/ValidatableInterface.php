@@ -15,9 +15,4 @@ interface ValidatableInterface
      * @return mixed The validated object value.
      */
     public function get();
-
-    /**
-     * @return string The validated object value, converted to string.
-     */
-    public function __toString(): string;
 }
