@@ -14,7 +14,6 @@ final class Email extends AbstractString
     public static function getConstraints(): array
     {
         return [
-            new Constraints\NotBlank(),
             new Constraints\Email(),
         ];
     }

@@ -15,7 +15,7 @@ final class DutchPostalCode extends AbstractPostalCode
     /**
      * {@inheritDoc}
      */
-    protected static function getAdditionalConstraints(): array
+    public static function getConstraints(): array
     {
         return [
             new Constraints\Regex([

@@ -14,7 +14,6 @@ final class Ip extends AbstractString
     public static function getConstraints(): array
     {
         return [
-            new Constraints\NotBlank(),
             new Constraint\Ip(),
         ];
     }

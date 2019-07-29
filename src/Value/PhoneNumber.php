@@ -14,7 +14,6 @@ final class PhoneNumber extends AbstractString
     public static function getConstraints(): array
     {
         return [
-            new Constraints\NotBlank(),
             new Constraints\Length([
                 'max' => 15, // According to E.164 of ITU-T
                 'min' => 7,

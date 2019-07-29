@@ -5,8 +5,6 @@ namespace Aeviiq\ValueObject\Value\PostalCode;
 use Aeviiq\ValueObject\AbstractString;
 use Aeviiq\ValueObject\Enum\Iso\Iso3166_1Alpha2\CountryCode;
 use Aeviiq\ValueObject\Normalizer;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints;
 
 abstract class AbstractPostalCode extends AbstractString
 {
@@ -20,21 +18,6 @@ abstract class AbstractPostalCode extends AbstractString
         $this->countryCode = $countryCode;
         parent::__construct($value);
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    public static function getConstraints(): array
-    {
-        return array_merge(static::getAdditionalConstraints(), [
-            new Constraints\NotBlank(),
-        ]);
-    }
-
-    /**
-     * @return Constraint[]
-     */
-    abstract protected static function getAdditionalConstraints(): array;
 
     public function getCountryCode(): CountryCode
     {
