@@ -14,9 +14,4 @@ abstract class AbstractString extends AbstractValue
 
         parent::__construct($value);
     }
-
-    public function __toString(): string
-    {
-        return (string)$this->value;
-    }
 }

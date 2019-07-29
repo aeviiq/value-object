@@ -8,9 +8,4 @@ abstract class AbstractFloat extends AbstractValue
     {
         parent::__construct($value);
     }
-
-    public function __toString(): string
-    {
-        return number_format($this->value, 1);
-    }
 }

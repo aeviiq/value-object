@@ -36,6 +36,11 @@ abstract class AbstractValue implements EquatableInterface, ValidatableInterface
         return $value === $this->value;
     }
 
+    public function __toString(): string
+    {
+        return (string)$this->value;
+    }
+
     /**
      * @return mixed
      */
