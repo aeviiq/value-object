@@ -4,7 +4,6 @@ namespace Aeviiq\ValueObject\Value;
 
 use Aeviiq\ValueObject\AbstractString;
 use Aeviiq\ValueObject\Constraint;
-use Symfony\Component\Validator\Constraints;
 
 final class Ip extends AbstractString
 {
