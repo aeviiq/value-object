@@ -20,7 +20,7 @@ final class Validator
      */
     public static function validateBy(ValidatableInterface $validatable): void
     {
-        static::validate($validatable->get(), $validatable::getConstraints());
+        static::validate($validatable, $validatable::getConstraints());
     }
 
     /**

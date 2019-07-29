@@ -12,7 +12,12 @@ interface ValidatableInterface
     public static function getConstraints(): array;
 
     /**
-     * @return mixed The value that can be validated.
+     * @return mixed The validated object value.
      */
     public function get();
+
+    /**
+     * @return string The validated object value, converted to string.
+     */
+    public function __toString(): string;
 }
