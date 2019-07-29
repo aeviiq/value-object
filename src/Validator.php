@@ -4,6 +4,7 @@ namespace Aeviiq\ValueObject;
 
 use Aeviiq\ValueObject\Exception\InvalidArgumentException;
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -20,7 +21,22 @@ final class Validator
      */
     public static function validateBy(ValidatableInterface $validatable): void
     {
-        static::validate($validatable, $validatable::getConstraints());
+        $constraints = $validatable::getConstraints();
+        $callbackConstraints = array_filter($constraints, static function (Constraint $constraint, $key) use (&$constraints) {
+            if ($constraint instanceof Callback) {
+                unset($constraints[$key]);
+
+                return true;
+            }
+
+            return false;
+        }, ARRAY_FILTER_USE_BOTH);
+
+        static::validate($validatable->get(), $constraints);
+
+        if (!empty($callbackConstraints)) {
+            static::validate($validatable, $callbackConstraints);
+        }
     }
 
     /**
