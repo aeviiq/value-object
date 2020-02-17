@@ -1,7 +1,7 @@
 {
     "name": "aeviiq/value-object",
     "type": "library",
-    "description": "Value Object Component",
+    "description": "A library that provides strict value objects in PHP.",
     "keywords": [
         "value-object"
     ],
@@ -26,6 +26,6 @@
     "require": {
         "php": "^7.2",
         "symfony/validator": "^3.4|^4.3",
-        "myclabs/php-enum": "^1.7"
+        "aeviiq/enum": "^2.0"
     }
 }
