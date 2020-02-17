@@ -2,9 +2,9 @@
 
 namespace Aeviiq\ValueObject\Enum\Iso\Iso3166_1Alpha2;
 
-use MyCLabs\Enum\Enum;
+use Aeviiq\Enum\AbstractEnum;
 
-final class CountryCode extends Enum
+final class CountryCode extends AbstractEnum
 {
     public const AF = 'AF';
     public const AX = 'AX';
