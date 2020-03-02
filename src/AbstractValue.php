@@ -30,7 +30,7 @@ abstract class AbstractValue implements EquatableInterface, ValidatableInterface
     final public function isEqualTo($value): bool
     {
         if ($value instanceof self) {
-            return $value === $value->get();
+            return $this->value === $value->get();
         }
 
         return $value === $this->value;
