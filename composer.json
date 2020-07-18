@@ -25,7 +25,7 @@
     },
     "require": {
         "php": "^7.2",
-        "symfony/validator": "^3.4|^4.3",
+        "symfony/validator": "^3.4|^4.3|^5.0",
         "aeviiq/enum": "^2.0"
     }
 }
