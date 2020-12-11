@@ -14,7 +14,6 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 7.2
-          extensions: zip
           coverage: none
       - id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
@@ -33,7 +32,6 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 7.2
-          extensions: zip
           coverage: none
       - id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
@@ -52,7 +50,6 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 7.2
-          extensions: zip
           coverage: none
       - id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
