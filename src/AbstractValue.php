@@ -2,13 +2,23 @@
 
 namespace Aeviiq\ValueObject;
 
+/**
+ * @template T
+ *
+ * @implements ValidatableInterface<T>
+ */
 abstract class AbstractValue implements EquatableInterface, ValidatableInterface
 {
     /**
+     * @psalm-var T
+     *
      * @var mixed
      */
     protected $value;
 
+    /**
+     * @psalm-param T $value
+     */
     public function __construct($value)
     {
         $value = $this->normalize($value);
@@ -17,7 +27,7 @@ abstract class AbstractValue implements EquatableInterface, ValidatableInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     final public function get()
     {
@@ -25,7 +35,7 @@ abstract class AbstractValue implements EquatableInterface, ValidatableInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     final public function isEqualTo($value): bool
     {
@@ -38,10 +48,14 @@ abstract class AbstractValue implements EquatableInterface, ValidatableInterface
 
     public function __toString(): string
     {
-        return (string)$this->value;
+        return (string) $this->value;
     }
 
     /**
+     * @psalm-param T $value
+     *
+     * @psalm-return T
+     *
      * @return mixed
      */
     protected function normalize($value)

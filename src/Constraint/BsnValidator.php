@@ -26,15 +26,19 @@ final class BsnValidator extends ConstraintValidator
             throw new UnexpectedValueException($value, 'numeric');
         }
 
+        if (!\is_string($value)) {
+            throw new UnexpectedValueException($value, 'string');
+        }
+
         $sum = 0;
-        $stringLength = \strlen($value);
+        $stringLength = \strlen((string) $value);
         $multiplier = $stringLength;
         for ($counter = 0; $counter < $stringLength; $counter++, $multiplier--) {
             if ($multiplier === 1) {
                 $multiplier = -1;
             }
 
-            $sum += $value[$counter] * $multiplier;
+            $sum += (int) $value[$counter] * $multiplier;
         }
         if (false === ($sum % 11 === 0)) {
             $this->context

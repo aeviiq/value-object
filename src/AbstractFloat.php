@@ -2,6 +2,9 @@
 
 namespace Aeviiq\ValueObject;
 
+/**
+ * @extends AbstractValue<float>
+ */
 abstract class AbstractFloat extends AbstractValue
 {
     public function __construct(float $value)

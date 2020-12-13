@@ -9,7 +9,7 @@ use Aeviiq\ValueObject\Normalizer;
 final class Bsn extends AbstractString
 {
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public static function getConstraints(): array
     {
@@ -19,7 +19,9 @@ final class Bsn extends AbstractString
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
+     *
+     * @param string $value
      */
     protected function normalize($value): string
     {

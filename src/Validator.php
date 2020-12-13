@@ -22,15 +22,14 @@ final class Validator
     public static function validateBy(ValidatableInterface $validatable): void
     {
         $constraints = $validatable::getConstraints();
-        $callbackConstraints = array_filter($constraints, static function (Constraint $constraint, $key) use (&$constraints) {
+
+        $callbackConstraints = [];
+        foreach ($constraints as $key => $constraint) {
             if ($constraint instanceof Callback) {
                 unset($constraints[$key]);
-
-                return true;
+                $callbackConstraints[$key] = $constraint;
             }
-
-            return false;
-        }, ARRAY_FILTER_USE_BOTH);
+        }
 
         static::validate($validatable->get(), $constraints);
 
@@ -40,8 +39,8 @@ final class Validator
     }
 
     /**
-     * @param mixed                   $value
-     * @param Constraint|Constraint[] $rules
+     * @param mixed                        $value
+     * @param array<array-key, Constraint> $constraints
      *
      * @throws InvalidArgumentException When the value violates any of the given constraints.
      */
@@ -58,7 +57,7 @@ final class Validator
             $violationMessages[] = $violation->getMessage();
         }
 
-        throw new InvalidArgumentException(\sprintf('Invalid value: "%s". "%s"', $value, implode('", "', $violationMessages)));
+        throw new InvalidArgumentException(\sprintf('Invalid value: "%s". "%s"', (string) $value, implode('", "', $violationMessages)));
     }
 
     private static function getValidator(): ValidatorInterface
