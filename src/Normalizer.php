@@ -8,6 +8,9 @@ final class Normalizer
 {
     public static function removeWhitespace(string $value): string
     {
-        return preg_replace('/\s+/', '', $value);
+        /** @var string $replaced */
+        $replaced = preg_replace('/\s+/', '', $value);
+
+        return $replaced;
     }
 }
