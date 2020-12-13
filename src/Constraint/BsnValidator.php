@@ -31,7 +31,7 @@ final class BsnValidator extends ConstraintValidator
         }
 
         $sum = 0;
-        $stringLength = \strlen((string) $value);
+        $stringLength = \strlen($value);
         $multiplier = $stringLength;
         for ($counter = 0; $counter < $stringLength; $counter++, $multiplier--) {
             if ($multiplier === 1) {

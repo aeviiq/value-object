@@ -9,6 +9,8 @@ use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+use function Safe\sprintf;
+
 final class Validator
 {
     /**
@@ -17,6 +19,8 @@ final class Validator
     private static $validator;
 
     /**
+     * @psalm-param ValidatableInterface<mixed> $validatable
+     *
      * @throws InvalidArgumentException When the value violates any of the present constraints.
      */
     public static function validateBy(ValidatableInterface $validatable): void
@@ -33,7 +37,7 @@ final class Validator
 
         static::validate($validatable->get(), $constraints);
 
-        if (!empty($callbackConstraints)) {
+        if (count($callbackConstraints) > 0) {
             static::validate($validatable, $callbackConstraints);
         }
     }
@@ -57,7 +61,7 @@ final class Validator
             $violationMessages[] = $violation->getMessage();
         }
 
-        throw new InvalidArgumentException(\sprintf('Invalid value: "%s". "%s"', (string) $value, implode('", "', $violationMessages)));
+        throw new InvalidArgumentException(sprintf('Invalid value: "%s". "%s"', (string) $value, implode('", "', $violationMessages)));
     }
 
     private static function getValidator(): ValidatorInterface
