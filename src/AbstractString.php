@@ -4,6 +4,9 @@ namespace Aeviiq\ValueObject;
 
 use Aeviiq\ValueObject\Exception\InvalidArgumentException;
 
+/**
+ * @extends AbstractValue<string>
+ */
 abstract class AbstractString extends AbstractValue
 {
     public function __construct(string $value)

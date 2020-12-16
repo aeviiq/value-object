@@ -26,6 +26,10 @@ final class BsnValidator extends ConstraintValidator
             throw new UnexpectedValueException($value, 'numeric');
         }
 
+        if (!\is_string($value)) {
+            throw new UnexpectedValueException($value, 'string');
+        }
+
         $sum = 0;
         $stringLength = \strlen($value);
         $multiplier = $stringLength;
@@ -34,7 +38,7 @@ final class BsnValidator extends ConstraintValidator
                 $multiplier = -1;
             }
 
-            $sum += $value[$counter] * $multiplier;
+            $sum += (int) $value[$counter] * $multiplier;
         }
         if (false === ($sum % 11 === 0)) {
             $this->context

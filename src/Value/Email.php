@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints;
 final class Email extends AbstractString
 {
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public static function getConstraints(): array
     {
@@ -19,7 +19,9 @@ final class Email extends AbstractString
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
+     *
+     * @param string $value
      */
     protected function normalize($value): string
     {
