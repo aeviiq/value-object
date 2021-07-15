@@ -5,6 +5,7 @@ namespace Aeviiq\ValueObject\Value;
 use Aeviiq\ValueObject\AbstractString;
 use Aeviiq\ValueObject\Constraint;
 use Aeviiq\ValueObject\Normalizer;
+use Symfony\Component\Validator\Constraints;
 
 final class Bsn extends AbstractString
 {
@@ -14,6 +15,7 @@ final class Bsn extends AbstractString
     public static function getConstraints(): array
     {
         return [
+            new Constraints\NotBlank(),
             new Constraint\Bsn(),
         ];
     }

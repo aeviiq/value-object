@@ -14,6 +14,7 @@ final class Iban extends AbstractString
     public static function getConstraints(): array
     {
         return [
+            new Constraints\NotBlank(),
             new Constraints\Iban(),
         ];
     }
