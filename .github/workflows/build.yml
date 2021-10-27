@@ -8,7 +8,7 @@ on:
 
 jobs:
     phpunit:
-        name: PHPUnit - PHP ${{ maxtrix.php-versions }}
+        name: PHPUnit - PHP ${{ matrix.php-versions }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
