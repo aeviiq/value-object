@@ -8,12 +8,16 @@ on:
 
 jobs:
     phpunit:
+        name: PHPUnit - PHP ${{ maxtrix.php-versions }}
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php-versions: [ '7.2', '7.3', '7.4', '8.0' ]
         steps:
             -   uses: actions/checkout@v2
             -   uses: shivammathur/setup-php@v2
                 with:
-                    php-version: 7.2
+                    php-version: ${{ matrix.php-versions }}
                     coverage: none
             -   id: composer-cache
                 run: echo "::set-output name=dir::$(composer config cache-files-dir)"
@@ -27,12 +31,16 @@ jobs:
             -   run: vendor/bin/phpunit
 
     phpstan:
+        name: PHPStan - PHP ${{ maxtrix.php-versions }}
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php-versions: [ '7.2', '7.3', '7.4', '8.0' ]
         steps:
             -   uses: actions/checkout@v2
             -   uses: shivammathur/setup-php@v2
                 with:
-                    php-version: 7.2
+                    php-version: ${{ matrix.php-versions }}
                     coverage: none
             -   id: composer-cache
                 run: echo "::set-output name=dir::$(composer config cache-files-dir)"
@@ -40,12 +48,16 @@ jobs:
             -   run: vendor/bin/phpstan analyse --error-format=github
 
     psalm:
+        name: Psalm - PHP ${{ maxtrix.php-versions }}
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php-versions: [ '7.2', '7.3', '7.4', '8.0' ]
         steps:
             -   uses: actions/checkout@v2
             -   uses: shivammathur/setup-php@v2
                 with:
-                    php-version: 7.2
+                    php-version: ${{ matrix.php-versions }}
                     coverage: none
             -   id: composer-cache
                 run: echo "::set-output name=dir::$(composer config cache-files-dir)"
