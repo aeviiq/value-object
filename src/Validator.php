@@ -9,8 +9,6 @@ use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-use function Safe\sprintf;
-
 final class Validator
 {
     /**
