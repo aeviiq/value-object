@@ -54,5 +54,4 @@ final class BsnValidatorTest extends TestCase
             ['1', false],
         ];
     }
-
 }
