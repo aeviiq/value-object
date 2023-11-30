@@ -10,7 +10,9 @@ composer require aeviiq/value-object
 
 ## Declaration
 ```php
-<?php declare(strict_types=1);
+<?php 
+
+declare(strict_types=1);
 
 namespace Aeviiq\ValueObject\Value;
 
@@ -20,9 +22,6 @@ use Symfony\Component\Validator\Constraints;
 
 final class Iban extends AbstractString
 {
-    /**
-     * {@inheritDoc}
-     */
     public static function getConstraints(): array
     {
         return [
@@ -30,9 +29,6 @@ final class Iban extends AbstractString
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     protected function normalize($value): string
     {
         return Normalizer::removeWhitespace($value);

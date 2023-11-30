@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Aeviiq\ValueObject;
 
@@ -23,6 +25,7 @@ abstract class AbstractValue implements EquatableInterface, ValidatableInterface
     {
         /** @psalm-suppress MixedAssignment */
         $this->value = $this->normalize($value);
+        /** @psalm-suppress InvalidArgument */
         Validator::validateBy($this);
     }
 

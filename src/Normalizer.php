@@ -1,19 +1,18 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Aeviiq\ValueObject;
 
-use UnexpectedValueException;
+use function Safe\preg_replace;
 
 final class Normalizer
 {
     public static function removeWhitespace(string $value): string
     {
-        $replaced = preg_replace('/\s+/', '', $value);
+        /** @var string $value */
+        $value = preg_replace('/\s+/', '', $value);
 
-        if(!is_string($replaced)) {
-            throw new UnexpectedValueException(sprintf('Could not remove whitespaces from string "%s".', $value));
-        }
-
-        return $replaced;
+        return $value;
     }
 }
