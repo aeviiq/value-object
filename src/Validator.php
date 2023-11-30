@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Aeviiq\ValueObject;
 
@@ -59,7 +61,7 @@ final class Validator
             $violationMessages[] = $violation->getMessage();
         }
 
-        throw new InvalidArgumentException(sprintf('Invalid value: "%s". "%s"', (string) $value, implode('", "', $violationMessages)));
+        throw new InvalidArgumentException(sprintf('Invalid value: "%s"', implode('", "', $violationMessages)));
     }
 
     private static function getValidator(): ValidatorInterface
