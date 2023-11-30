@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class NormalizerTest extends TestCase
 {
-    public function removeWhitespaceTest(): void
+    public function testRemoveWhitespaceTest(): void
     {
         $normalizer = new Normalizer();
         self::assertEquals('test123', $normalizer::removeWhitespace('test 123'));
