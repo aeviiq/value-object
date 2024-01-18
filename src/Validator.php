@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Aeviiq\ValueObject;
 
 use Aeviiq\ValueObject\Exception\InvalidArgumentException;
+use stdClass;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\ConstraintViolation;
@@ -61,7 +62,7 @@ final class Validator
             $violationMessages[] = $violation->getMessage();
         }
 
-        throw new InvalidArgumentException(sprintf('Invalid value: "%s"', implode('", "', $violationMessages)));
+        throw new InvalidArgumentException(sprintf('Invalid value: "%s". "%s"', self::toString($value), implode('", "', $violationMessages)));
     }
 
     private static function getValidator(): ValidatorInterface
@@ -71,5 +72,14 @@ final class Validator
         }
 
         return static::$validator;
+    }
+
+    private static function toString(mixed $value): string
+    {
+        if (\is_scalar($value) || \is_object($value) && \method_exists($value, '__toString')) {
+            return (string) $value;
+        }
+
+        return '';
     }
 }
